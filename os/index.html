@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="../css/custom.css">
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="../js/jquery-3.3.1.slim.min.js"></script>
+		<script src="../js/popper.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="../dist/css/bootstrap-select.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="../dist/js/bootstrap-select.min.js"></script>
+
+		<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+		<script src="../dist/js/i18n/defaults-*.min.js"></script>
+
+		<!-- Custom JS -->
+		<script src="../js/os.js"></script>
+
+		<title>Gerador de ordem de serviço</title>
+		
+	</head>
+	<body class="container" onmouseover="document.title = 'Gerador de ordem de serviço';">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="#">Navegação</a>
+
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Gerar ordem de serviço</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../downloads">Downloads</a>
+				</li>
+			</ul>
+			</div>
+		</nav><br>
+		<div class="container d-print-block d-none" name="paper">
+			<div class="row row-eq-height">
+				<div class="col-xs-2 col-md-2 outlined">
+					<img src='logo.jpg' alt="Jaboatão" />
+				</div>
+				<div class="col-xs-10 col-md-10 text-center font-weight-bold outlined">
+					PREFEITURA MUNICIPAL DO JABOATÃO DOS GUARARAPES<br>
+					SECRETARIA MUNICIPAL DE EDUCAÇÃO<br>
+					SECRETARIA EXECUTIVA DE PLANEJAMENTO EM EDUCAÇÃO<br>
+					COORDENAÇÃO DE ESTATÍSTICA E TECNOLOGIA DA INFORMAÇÃO
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-12 text-center text-uppercase outlined">
+					<hr><h5>ordem de serviço - hardware</h5>
+				</div>
+			</div>
+			<div class="card mb-1">
+				<div class="card-body">
+					<h6 class="card-title text-uppercase">Dados do responsável</h6>
+					<div class="card-text">
+						<div class=" input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<label class="input-group-text font-weight-bold border-0 bg-transparent" for="resp_name">Nome:</label>
+							</div>
+							<input type="text" readonly="" class="form-control form-control-plaintext bg-transparent" id="resp_name">
+						</div>
+						<div class=" input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<label class="input-group-text font-weight-bold border-0 bg-transparent" for="sector_name">Escola/Setor:</label>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent" id="sector_name">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-1">
+				<div class="card-body">
+					<h6 class="card-title text-uppercase">Equipamento</h6>
+					<div class="card-text">
+						<div class=" input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<label class="input-group-text font-weight-bold border-0 bg-transparent" for="equip_type">Tipo:</label>
+							</div>
+							<input type="text" readonly="" class="form-control form-control-plaintext bg-transparent" id="equip_type">
+							<div class="input-group-prepend">
+								<label class="input-group-text font-weight-bold border-0 bg-transparent" for="equip_model">Marca/Modelo:</label>
+							</div>
+							<input type="text" readonly="" class="form-control form-control-plaintext bg-transparent" id="equip_model">
+						</div>
+						<div class=" input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<label class="input-group-text font-weight-bold border-0 bg-transparent" for="equip_id">Tombamento/Número de série:</label>
+							</div>
+							<input type="text" readonly="" class="form-control form-control-plaintext bg-transparent" id="equip_id">
+						</div>
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent align-top" for="equip_checklist">Checklist:<br><br><br></span>
+							</div>
+							<textarea readonly class="form-control form-control-plaintext noresize bg-transparent" id="equip_checklist" style="height: 3em;"></textarea>
+						</div>
+						<div class="input-group input-group-sm mb-0" id="print_pw">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="equip_password">Senha:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent" id="equip_password">
+						</div>
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="equip_problem">Descrição do problema:<br><br><br><br></span>
+							</div>
+							<textarea readonly class="form-control form-control-plaintext noresize bg-transparent" id="equip_problem" style="height: 8em;"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-1">
+				<div class="card-body">
+					<h6 class="card-title text-uppercase">Entrada</h6>
+					<div class="card-text">
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_name_in">Técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent" id="tech_name_in" value="s">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="in_date">Data:</span>
+							</div>
+							<input type="date" readonly class="form-control form-control-plaintext bg-transparent" id="in_date" value="">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="in_CI">CI/Ofício:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent" id="in_CI" value="">
+						</div>
+						<div class="input-group input-group-sm mb-3 mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_sign">Assinatura do técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="tech_sign">
+						</div>
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="resp_sign">Assinatura do responsável:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resp_sign">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-1">
+				<div class="card-body">
+					<h6 class="card-title text-uppercase">Resolução</h6>
+					<div class="card-text">
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_name_out">Técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="tech_name_out">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="out_date">Data:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="out_date">
+						</div>
+						<div class="input-group input-group-sm mb-3 mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="resolution_1">Resolução:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resolution_1">
+						</div>
+						<div class="input-group input-group-sm mb-3">
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resolution_1">
+						</div>
+						<div class="input-group input-group-sm mb-3">
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resolution_1">
+						</div>
+						<div class="input-group input-group-sm mb-3 mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_sign">Assinatura do técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="tech_sign">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-1">
+				<div class="card-body">
+					<h6 class="card-title text-uppercase">Saída</h6>
+					<div class="card-text">
+						<div class="input-group input-group-sm mb-0">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_name_out">Técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="tech_name_out">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="out_date">Data:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="out_date">
+						</div>
+						<div class="input-group input-group-sm mb-3 mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="tech_sign">Assinatura do técnico:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="tech_sign">
+						</div>
+						<div class="input-group input-group-sm mb-3 mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="resp_name_out">Responsável:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resp_name_out">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="resp_id_out">Matrícula:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resp_id_out">
+						</div>
+						<div class="input-group input-group-sm mt-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text font-weight-bold border-0 bg-transparent" for="resp_sign">Assinatura do responsável:</span>
+							</div>
+							<input type="text" readonly class="form-control form-control-plaintext bg-transparent sign" id="resp_sign">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Gerador-->
+		<div class="container d-block d-print-none" name="screen">
+			<form id="resp">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title text-uppercase">Dados do responsável <button class="btn btn-light btn-sm" type="reset">Limpar seção</button></h5>
+						<div class="card-text input-group input-group-sm mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="resp_name_fm">Nome</label>
+							</div>
+							<input type="text" class="form-control" id="resp_name_fm" value="">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="sector_name_fm">Escola/Setor</label>
+							</div>
+							<!--input type="text" class="form-control" id="sector_name_fm" value=""-->
+							<select class="form-control form-control-sm selectpicker" id="sector_name_fm" data-live-search="true" data-style="btn-outline-special" data-styleBase="btn">
+								<option data-tokens="" selected="true"></option>
+								<option data-tokens="CEMEI EDVALDO SEVERIANO DE OLIVEIRA">CEMEI EDVALDO SEVERIANO DE OLIVEIRA</option>
+								<option data-tokens="CEMEI LUIZ FERNANDO DE CARVALHO ARCOVERDE">CEMEI LUIZ FERNANDO DE CARVALHO ARCOVERDE</option>
+								<option data-tokens="CEMEI MARCOS FREIRE">CEMEI MARCOS FREIRE</option>
+								<option data-tokens="CEMEI PROFESSORA MARIA DE FATIMA DA SILVA">CEMEI PROFESSORA MARIA DE FATIMA DA SILVA</option>
+								<option data-tokens="CEMEI PROFESSORA MARIA JOSE DA SILVA">CEMEI PROFESSORA MARIA JOSE DA SILVA</option>
+								<option data-tokens="CEMEI PROFESSORA MARLUCIA EVANGELISTA DE SOUZA">CEMEI PROFESSORA MARLUCIA EVANGELISTA DE SOUZA</option>
+								<option data-tokens="CEMEI PROFESSORA MARIA LUZIA RIO LIMA">CEMEI PROFESSORA MARIA LUZIA RIO LIMA</option>
+								<option data-tokens="CEMEI SANTO AMARO">CEMEI SANTO AMARO</option>
+								<option data-tokens="CEMEI SILVIA MARIA DE OLIVEIRA">CEMEI SILVIA MARIA DE OLIVEIRA</option>
+								<option data-tokens="CENTRO EDUCACIONAL CRISTO REDENTOR">CENTRO EDUCACIONAL CRISTO REDENTOR</option>
+								<option data-tokens="CENTRO MUNICIPAL PROFESSORA MARINALVA MARIA VICENTE">CENTRO MUNICIPAL PROFESSORA MARINALVA MARIA VICENTE</option>
+								<option data-tokens="CENTRO MUNICIPAL PROFESSORA SIMONE PATRICIA FERREIRA DA SILVA">CENTRO MUNICIPAL PROFESSORA SIMONE PATRICIA FERREIRA DA SILVA</option>
+								<option data-tokens="COLEGIO MUNICIPAL VISCONDE DE SUASSUNA">COLEGIO MUNICIPAL VISCONDE DE SUASSUNA</option>
+								<option data-tokens="CRECHE CIRANDA CIRANDINHA">CRECHE CIRANDA CIRANDINHA</option>
+								<option data-tokens="CRECHE MERCIA DE ALBUQUERQUE">CRECHE MERCIA DE ALBUQUERQUE</option>
+								<option data-tokens="CRECHE MUNDO ENCANTADO">CRECHE MUNDO ENCANTADO</option>
+								<option data-tokens="CRECHE MUNICIPAL PROFESSORA MARIA RITA LINS MARTINS">CRECHE MUNICIPAL PROFESSORA MARIA RITA LINS MARTINS</option>
+								<option data-tokens="CRECHE MUNICIPAL PROFESSORA SILVIA CRISTINA SANTOS BOTELHO">CRECHE MUNICIPAL PROFESSORA SILVIA CRISTINA SANTOS BOTELHO</option>
+								<option data-tokens="CRECHE PROFESSORA LEDA MARIA QUEIROZ DO REGO BARROS">CRECHE PROFESSORA LEDA MARIA QUEIROZ DO REGO BARROS</option>
+								<option data-tokens="ESCOLA ALICE VILAR DE AQUINO">ESCOLA ALICE VILAR DE AQUINO</option>
+								<option data-tokens="ESCOLA BARTOLOMEU DE GUSMAO">ESCOLA BARTOLOMEU DE GUSMAO</option>
+								<option data-tokens="ESCOLA COMPOSITOR LUIZ GONZAGA">ESCOLA COMPOSITOR LUIZ GONZAGA</option>
+								<option data-tokens="ESCOLA DIVINA PROVIDENCIA">ESCOLA DIVINA PROVIDENCIA</option>
+								<option data-tokens="ESCOLA DJALMA FARIAS">ESCOLA DJALMA FARIAS</option>
+								<option data-tokens="ESCOLA GIANE FREITAS DE LIMA">ESCOLA GIANE FREITAS DE LIMA</option>
+								<option data-tokens="ESCOLA JABOATAO DOS GUARARAPES (ECO)">ESCOLA JABOATAO DOS GUARARAPES (ECO)</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALAIDE PEDROSA">ESCOLA MUNICIPAL ALAIDE PEDROSA</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALAYDE MARIA DA CONCEICAO">ESCOLA MUNICIPAL ALAYDE MARIA DA CONCEICAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALBENICE MARIA DA SILVA">ESCOLA MUNICIPAL ALBENICE MARIA DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALBERTO LUIZ RUSSO">ESCOLA MUNICIPAL ALBERTO LUIZ RUSSO</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALBERTO SANTOS DUMONT">ESCOLA MUNICIPAL ALBERTO SANTOS DUMONT</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALMIRANTE TAMANDARE">ESCOLA MUNICIPAL ALMIRANTE TAMANDARE</option>
+								<option data-tokens="ESCOLA MUNICIPAL ALUISIO DA CUNHA MORAIS">ESCOLA MUNICIPAL ALUISIO DA CUNHA MORAIS</option>
+								<option data-tokens="ESCOLA MUNICIPAL ANA FARIAS DE SOUZA">ESCOLA MUNICIPAL ANA FARIAS DE SOUZA</option>
+								<option data-tokens="ESCOLA MUNICIPAL ANIBAL VAREJAO">ESCOLA MUNICIPAL ANIBAL VAREJAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL ANTONIO VIEIRA DE MELO">ESCOLA MUNICIPAL ANTONIO VIEIRA DE MELO</option>
+								<option data-tokens="ESCOLA MUNICIPAL ARNALDO PEIXOTO">ESCOLA MUNICIPAL ARNALDO PEIXOTO</option>
+								<option data-tokens="ESCOLA MUNICIPAL BARAO DE MURIBECA">ESCOLA MUNICIPAL BARAO DE MURIBECA</option>
+								<option data-tokens="ESCOLA MUNICIPAL BELEM DE JUDA">ESCOLA MUNICIPAL BELEM DE JUDA</option>
+								<option data-tokens="ESCOLA MUNICIPAL BENJAMIN CONSTANT">ESCOLA MUNICIPAL BENJAMIN CONSTANT</option>
+								<option data-tokens="ESCOLA MUNICIPAL CECILIA BRANDAO">ESCOLA MUNICIPAL CECILIA BRANDAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL CHICO MENDES">ESCOLA MUNICIPAL CHICO MENDES</option>
+								<option data-tokens="ESCOLA MUNICIPAL CLAUDIO AGRICIO">ESCOLA MUNICIPAL CLAUDIO AGRICIO</option>
+								<option data-tokens="ESCOLA MUNICIPAL D EMERY CARNEIRO">ESCOLA MUNICIPAL D EMERY CARNEIRO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DAVINO TENORIO">ESCOLA MUNICIPAL DAVINO TENORIO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DE TEMPO INTEGRAL NOSSA ESCOLA">ESCOLA MUNICIPAL DE TEMPO INTEGRAL NOSSA ESCOLA</option>
+								<option data-tokens="ESCOLA MUNICIPAL DJACY GLICERIO">ESCOLA MUNICIPAL DJACY GLICERIO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DOM BENO">ESCOLA MUNICIPAL DOM BENO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DOM BOSCO">ESCOLA MUNICIPAL DOM BOSCO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DOM CARLOS COELHO">ESCOLA MUNICIPAL DOM CARLOS COELHO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DOM PEDRO DE ALCANTARA">ESCOLA MUNICIPAL DOM PEDRO DE ALCANTARA</option>
+								<option data-tokens="ESCOLA MUNICIPAL DOUTOR MAURICIO MARTINS DE ALBUQUERQUE">ESCOLA MUNICIPAL DOUTOR MAURICIO MARTINS DE ALBUQUERQUE</option>
+								<option data-tokens="ESCOLA MUNICIPAL DR JOSE LEOPOLDINO">ESCOLA MUNICIPAL DR JOSE LEOPOLDINO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DR LUIZ GONZAGA MARANHAO">ESCOLA MUNICIPAL DR LUIZ GONZAGA MARANHAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL DR LUIZ REGUEIRA">ESCOLA MUNICIPAL DR LUIZ REGUEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL DUQUE DE CAXIAS">ESCOLA MUNICIPAL DUQUE DE CAXIAS</option>
+								<option data-tokens="ESCOLA MUNICIPAL ESTELITA MARIA MENDES">ESCOLA MUNICIPAL ESTELITA MARIA MENDES</option>
+								<option data-tokens="ESCOLA MUNICIPAL ESTER CAMPELO">ESCOLA MUNICIPAL ESTER CAMPELO</option>
+								<option data-tokens="ESCOLA MUNICIPAL FRANCISCA ARAUJO DE SOUZA">ESCOLA MUNICIPAL FRANCISCA ARAUJO DE SOUZA</option>
+								<option data-tokens="ESCOLA MUNICIPAL GALBA MATOS">ESCOLA MUNICIPAL GALBA MATOS</option>
+								<option data-tokens="ESCOLA MUNICIPAL GILDO VERISSIMO">ESCOLA MUNICIPAL GILDO VERISSIMO</option>
+								<option data-tokens="ESCOLA MUNICIPAL HENRIQUE DIAS">ESCOLA MUNICIPAL HENRIQUE DIAS</option>
+								<option data-tokens="ESCOLA MUNICIPAL HUMBERTO BARRADAS">ESCOLA MUNICIPAL HUMBERTO BARRADAS</option>
+								<option data-tokens="ESCOLA MUNICIPAL IRACI RODOVALHO">ESCOLA MUNICIPAL IRACI RODOVALHO</option>
+								<option data-tokens="ESCOLA MUNICIPAL JESUS DE NAZARE">ESCOLA MUNICIPAL JESUS DE NAZARE</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOAO BOSCO DE SENA">ESCOLA MUNICIPAL JOAO BOSCO DE SENA</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOAO FERNANDES VIEIRA">ESCOLA MUNICIPAL JOAO FERNANDES VIEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOSE CARLOS RIBEIRO">ESCOLA MUNICIPAL JOSE CARLOS RIBEIRO</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOSE CARNEIRO">ESCOLA MUNICIPAL JOSE CARNEIRO</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOSE CLAUDINO DA SILVA">ESCOLA MUNICIPAL JOSE CLAUDINO DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOSE RODOVALHO">ESCOLA MUNICIPAL JOSE RODOVALHO</option>
+								<option data-tokens="ESCOLA MUNICIPAL JOSEFA BATISTA DA SILVA">ESCOLA MUNICIPAL JOSEFA BATISTA DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL JUDITH FIGUEIROA">ESCOLA MUNICIPAL JUDITH FIGUEIROA</option>
+								<option data-tokens="ESCOLA MUNICIPAL LEUZA PEREIRA">ESCOLA MUNICIPAL LEUZA PEREIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL LILIOSA RAMOS">ESCOLA MUNICIPAL LILIOSA RAMOS</option>
+								<option data-tokens="ESCOLA MUNICIPAL LUIZ LUA GONZAGA">ESCOLA MUNICIPAL LUIZ LUA GONZAGA</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARCONIEDSON RODRIGUES MOREIRA">ESCOLA MUNICIPAL MARCONIEDSON RODRIGUES MOREIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARECHAL CASTELO BRANCO">ESCOLA MUNICIPAL MARECHAL CASTELO BRANCO</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARECHAL COSTA E SILVA">ESCOLA MUNICIPAL MARECHAL COSTA E SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARIA AUGUSTA DUTRA">ESCOLA MUNICIPAL MARIA AUGUSTA DUTRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARIA DE LOURDES RAMOS">ESCOLA MUNICIPAL MARIA DE LOURDES RAMOS</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARIA FEIJO">ESCOLA MUNICIPAL MARIA FEIJO</option>
+								<option data-tokens="ESCOLA MUNICIPAL MARIZIA DOS SANTOS MELO">ESCOLA MUNICIPAL MARIZIA DOS SANTOS MELO</option>
+								<option data-tokens="ESCOLA MUNICIPAL MEDALHA MILAGROSA">ESCOLA MUNICIPAL MEDALHA MILAGROSA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NATIVIDADE SALDANHA">ESCOLA MUNICIPAL NATIVIDADE SALDANHA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NICEA CAHU">ESCOLA MUNICIPAL NICEA CAHU</option>
+								<option data-tokens="ESCOLA MUNICIPAL NINA DE OLIVEIRA">ESCOLA MUNICIPAL NINA DE OLIVEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA APARECIDA">ESCOLA MUNICIPAL NOSSA SENHORA APARECIDA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA DA CONCEICAO">ESCOLA MUNICIPAL NOSSA SENHORA DA CONCEICAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA DE FATIMA">ESCOLA MUNICIPAL NOSSA SENHORA DE FATIMA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA DO CARMO">ESCOLA MUNICIPAL NOSSA SENHORA DO CARMO</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA DO LORETO">ESCOLA MUNICIPAL NOSSA SENHORA DO LORETO</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOSSA SENHORA DOS PRAZERES">ESCOLA MUNICIPAL NOSSA SENHORA DOS PRAZERES</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOVA DIVINEA">ESCOLA MUNICIPAL NOVA DIVINEA</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOVA VISAO">ESCOLA MUNICIPAL NOVA VISAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL NOVO HORIZONTE">ESCOLA MUNICIPAL NOVO HORIZONTE</option>
+								<option data-tokens="ESCOLA MUNICIPAL ODETTE PEREIRA CARNEIRO">ESCOLA MUNICIPAL ODETTE PEREIRA CARNEIRO</option>
+								<option data-tokens="ESCOLA MUNICIPAL OLAVO BILAC">ESCOLA MUNICIPAL OLAVO BILAC</option>
+								<option data-tokens="ESCOLA MUNICIPAL ORLANDO BRENO">ESCOLA MUNICIPAL ORLANDO BRENO</option>
+								<option data-tokens="ESCOLA MUNICIPAL OSCAR MOURA">ESCOLA MUNICIPAL OSCAR MOURA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PADRE AURINO CARACCIOLO">ESCOLA MUNICIPAL PADRE AURINO CARACCIOLO</option>
+								<option data-tokens="ESCOLA MUNICIPAL PASTOR JOAO ADALGISO">ESCOLA MUNICIPAL PASTOR JOAO ADALGISO</option>
+								<option data-tokens="ESCOLA MUNICIPAL PAULINO MENELAU">ESCOLA MUNICIPAL PAULINO MENELAU</option>
+								<option data-tokens="ESCOLA MUNICIPAL PAULO MENELAU">ESCOLA MUNICIPAL PAULO MENELAU</option>
+								<option data-tokens="ESCOLA MUNICIPAL PEDRO ALVARES CABRAL">ESCOLA MUNICIPAL PEDRO ALVARES CABRAL</option>
+								<option data-tokens="ESCOLA MUNICIPAL POETA CASTRO ALVES">ESCOLA MUNICIPAL POETA CASTRO ALVES</option>
+								<option data-tokens="ESCOLA MUNICIPAL POETA MANUEL BANDEIRA">ESCOLA MUNICIPAL POETA MANUEL BANDEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL POETA VINICIUS DE MORAIS">ESCOLA MUNICIPAL POETA VINICIUS DE MORAIS</option>
+								<option data-tokens="ESCOLA MUNICIPAL POETISA FRANCISCA IZADORA">ESCOLA MUNICIPAL POETISA FRANCISCA IZADORA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PORTO DA CIDADANIA">ESCOLA MUNICIPAL PORTO DA CIDADANIA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR ACHILES SALES DA SILVA">ESCOLA MUNICIPAL PROFESSOR ACHILES SALES DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR ALMIR OLIMPIO ALVES">ESCOLA MUNICIPAL PROFESSOR ALMIR OLIMPIO ALVES</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR AUGUSTO PEREIRA JUNIOR">ESCOLA MUNICIPAL PROFESSOR AUGUSTO PEREIRA JUNIOR</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR CARLOS JOSE RIBEIRO JUNIOR">ESCOLA MUNICIPAL PROFESSOR CARLOS JOSE RIBEIRO JUNIOR</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR EDWARD BERNARDINO">ESCOLA MUNICIPAL PROFESSOR EDWARD BERNARDINO</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR ROBERTO INACIO DA SILVA">ESCOLA MUNICIPAL PROFESSOR ROBERTO INACIO DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSOR SILVIO ROMERO VIEIRA">ESCOLA MUNICIPAL PROFESSOR SILVIO ROMERO VIEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA EXPEDITA HELENA ALMEIDA DA SILVA">ESCOLA MUNICIPAL PROFESSORA EXPEDITA HELENA ALMEIDA DA SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA LUZIANA MARIA PEREIRA">ESCOLA MUNICIPAL PROFESSORA LUZIANA MARIA PEREIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA MARIA JOSE BEZERRA">ESCOLA MUNICIPAL PROFESSORA MARIA JOSE BEZERRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA NAZETE VIEIRA DE LIMA">ESCOLA MUNICIPAL PROFESSORA NAZETE VIEIRA DE LIMA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA ODETE GOMES DE MORAIS">ESCOLA MUNICIPAL PROFESSORA ODETE GOMES DE MORAIS</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA RAQUEL GOMES DO NASCIMENTO">ESCOLA MUNICIPAL PROFESSORA RAQUEL GOMES DO NASCIMENTO</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROFESSORA TECLA TEIXEIRA DE ARRUDA">ESCOLA MUNICIPAL PROFESSORA TECLA TEIXEIRA DE ARRUDA</option>
+								<option data-tokens="ESCOLA MUNICIPAL PROF EUNICE FELIX SILVA">ESCOLA MUNICIPAL PROF EUNICE FELIX SILVA</option>
+								<option data-tokens="ESCOLA MUNICIPAL RURAL MARCELO LAFAYETTE">ESCOLA MUNICIPAL RURAL MARCELO LAFAYETTE</option>
+								<option data-tokens="ESCOLA MUNICIPAL RURAL MARIA ANGELA DE ALBUQUERQUE MARANHAO">ESCOLA MUNICIPAL RURAL MARIA ANGELA DE ALBUQUERQUE MARANHAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL RURAL PAULO FREIRE">ESCOLA MUNICIPAL RURAL PAULO FREIRE</option>
+								<option data-tokens="ESCOLA MUNICIPAL RURAL PROFESSOR AUGUSTO DE CASTRO">ESCOLA MUNICIPAL RURAL PROFESSOR AUGUSTO DE CASTRO</option>
+								<option data-tokens="ESCOLA MUNICIPAL RURAL PROFESSORA ELIZABETH MENEZES">ESCOLA MUNICIPAL RURAL PROFESSORA ELIZABETH MENEZES</option>
+								<option data-tokens="ESCOLA MUNICIPAL SANTA CATHERINE LABOURE">ESCOLA MUNICIPAL SANTA CATHERINE LABOURE</option>
+								<option data-tokens="ESCOLA MUNICIPAL SANTA EDWIRGES">ESCOLA MUNICIPAL SANTA EDWIRGES</option>
+								<option data-tokens="ESCOLA MUNICIPAL SANTA TEREZA DE AVILA">ESCOLA MUNICIPAL SANTA TEREZA DE AVILA</option>
+								<option data-tokens="ESCOLA MUNICIPAL SAO SEBASTIAO">ESCOLA MUNICIPAL SAO SEBASTIAO</option>
+								<option data-tokens="ESCOLA MUNICIPAL UBALDINO FIGUEIROA">ESCOLA MUNICIPAL UBALDINO FIGUEIROA</option>
+								<option data-tokens="ESCOLA MUNICIPAL VALDEMIRO VIEIRA DE ALBUQUERQUE">ESCOLA MUNICIPAL VALDEMIRO VIEIRA DE ALBUQUERQUE</option>
+								<option data-tokens="ESCOLA MUNICIPAL VANIA LARANJEIRA">ESCOLA MUNICIPAL VANIA LARANJEIRA</option>
+								<option data-tokens="ESCOLA MUNICIPAL VEREADOR ANTONIO JANUARIO">ESCOLA MUNICIPAL VEREADOR ANTONIO JANUARIO</option>
+								<option data-tokens="ESCOLA MUNICIPAL VEREADOR OTAVIO MIRANDA">ESCOLA MUNICIPAL VEREADOR OTAVIO MIRANDA</option>
+								<option data-tokens="ESCOLA MUNICIPAL VIDAL DE NEGREIROS">ESCOLA MUNICIPAL VIDAL DE NEGREIROS</option>
+								<option data-tokens="ESCOLA MUNICIPAL WALFRIDO COELHO">ESCOLA MUNICIPAL WALFRIDO COELHO</option>
+								<option data-tokens="ESCOLA PROFESSOR COSTA PINTO">ESCOLA PROFESSOR COSTA PINTO</option>
+								<option data-tokens="ESCOLA PROFESSOR SALVIO SANTOS FARIAS">ESCOLA PROFESSOR SALVIO SANTOS FARIAS</option>
+								<option data-tokens="ESCOLA PROFESSORA LENITA RIBEIRO DE CASTRO">ESCOLA PROFESSORA LENITA RIBEIRO DE CASTRO</option>
+								<option data-tokens="ESCOLA PROFESSORA CANDIDA DE ANDRADE MACIEL">ESCOLA PROFESSORA CANDIDA DE ANDRADE MACIEL</option>
+								<option data-tokens="Outro">Outro</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</form><br>
+			<form id="equip">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title text-uppercase">Equipamento <button class="btn btn-light btn-sm" onclick="$('#equip_id_fm').prop('disabled', false); "type="reset">Limpar seção</button></h5>
+					<div class="card-text">
+						<div class="input-group input-group-sm mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="equip_type_fm">Tipo</label>
+							</div>
+							<select class="form-control" id="equip_type_fm" onchange="update_checklist();">
+								<option>Desktop</option>
+								<option>Notebook</option>
+								<option>Monitor</option>
+								<option>Impressora</option>
+								<option>Datashow</option>
+								<option>Computador/Datashow (FNDE)</option>
+							</select>
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="equip_model_fm">Marca/Modelo</label>
+							</div>
+							<input type="text" class="form-control" id="equip_model_fm" value="">
+						</div>
+						<div class="input-group input-group-sm mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="equip_id_fm">Tombamento/Número de série:</label>
+							</div>
+							<input type="text" class="form-control" id="equip_id_fm" value="">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<input type="checkbox" id="has_id" onchange="update_id(this);">
+								</div>
+							</div>
+							<div class="input-group-append">
+								<label class="input-group-text" for="equip_id_fm">Sem Tombamento</label>
+							</div>
+						</div>
+						<div id="checklist1" class="input-group input-group-sm mb-3">
+							<!--HD-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_hd" onchange="document.getElementById('hd_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="hd_desc" placeholder="HD (descrição opcional)" disabled >
+							<!--Processador-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_proc" onchange="document.getElementById('proc_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="proc_desc" placeholder="Processador (descrição opcional)" disabled >
+						</div>
+						<div id="checklist2" class="input-group input-group-sm mb-3">
+							<!--Memória-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_mem" onchange="document.getElementById('mem_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="mem_desc" placeholder="Memória (tamanho/quantidade)" disabled >
+							<!--Unidade ótica-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_optic" onchange="document.getElementById('optic_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="optic_desc" placeholder="Unidades óticas (CD/DVD, quantidade)" disabled >
+						</div>
+						<div id="checklist3" class="input-group input-group-sm mb-3">
+							<!--Placa-mãe-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_mb" onchange="document.getElementById('mb_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="mb_desc" placeholder="Placa-mãe (descrição opcional)" disabled >
+							<!--Placa de vídeo-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_graphic" onchange="document.getElementById('graphic_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="graphic_desc" placeholder="Placa de vídeo (quantidade/descrição)" disabled >
+						</div>
+						<div id="checklist4" class="input-group input-group-sm mb-3">
+							<!--Fonte-->
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_psu" onchange="document.getElementById('psu_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="psu_desc" placeholder="Fonte (descrição opcional)" disabled >
+							<!--Cabos-->
+							<div class="input-group-prepend" id="cable_info">
+								<div class="input-group-text">
+									<input type="checkbox" id="equip_cables" onchange="document.getElementById('cables_desc').disabled = !this.checked;">
+								</div>
+							</div>
+							<input type="text" class="form-control" id="cables_desc" placeholder="Cabos (vídeo/força/dados)" disabled >
+						</div>
+						<div class="input-group input-group-sm mb-3" id="password">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="equip_password_fm">Senha</label>
+							</div>
+							<input type="text" class="form-control" id="equip_password_fm" value="" placeholder="Lembre-se de pedir a senha, ou a senha terá que ser resetada.">
+						</div>
+						<div class="input-group input-group-sm mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="equip_problem_fm">Descrição do problema</label>
+							</div>
+							<textarea class="form-control noresize" id="equip_problem_fm" maxlength="500" onkeyup="$('#size').text($(this).val().length + '/500');if($(this).val().length <= 350){$('#size').removeClass('alert-warning alert-danger').addClass('alert-primary');};if($(this).val().length > 350 && $(this).val().length < 500){$('#size').removeClass('alert-primary alert-danger').addClass('alert-warning');};if($(this).val().length == 500){$('#size').removeClass('alert-primary alert-warning').addClass('alert-danger');}"></textarea>
+							<div class="input-group-append">
+								<span class="input-group-text alert-primary" id="size">0/500</span>
+							</div>
+						</div>
+						<small class="text-muted">Obs.: Não aceitar cabos de força, vídeo ou dados a menos que sejam a provável causa do problema.</small>
+					</div>
+				</div>
+			</div>
+			</form><br>
+			<form id="entry">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title text-uppercase">Entrada <button class="btn btn-light btn-sm" type="reset">Limpar seção</button></h5>
+					<div class="card-text input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="tech_name_in_fm">Técnico</label>
+						</div>
+						<select class="form-control" id="tech_name_in_fm">
+							<option>Erick Calado</option>
+							<option>Guilherme Vitor</option>
+							<option>Harold Marcel</option>
+							<option>Jecol Chretien</option>
+							<option>Jefferson Thomas</option>
+							<option>Julio Cezar Medeiros</option>
+							<option>Matheus Menezes</option>
+							<option>Paulo Edson</option>
+							<option>Vinicius Carrera</option>
+							<option selected></option>
+						</select>
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="in_date_fm">Data</label>
+						</div>
+						<input type="date" class="form-control form-control-sm" id="in_date_fm" value="">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="in_CI_fm">CI/Ofício</label>
+						</div>
+						<input type="text" class="form-control form-control-sm" id="in_CI_fm" value="">
+					</div>
+				</div>
+			</div>
+			</form><br>
+			<div class="card border-0">
+				<div class="card-body text-center">
+					<button class="btn btn-primary btn-md text-uppercase" onclick="clear_forms()">Limpar formulário</button>
+					<button class="btn btn-primary btn-md text-uppercase" onclick="generate();">Gerar ordem de serviço</button>
+				</div>
+			</div>
+			<br>
+		</div>
+	</body>
+</html>

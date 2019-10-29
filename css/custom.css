@@ -1,0 +1,35 @@
+.outlined{
+	border: 0px solid #000;
+}
+.noresize {
+	resize: none; 
+}
+.sign {
+	border-bottom: 1px dashed #000;
+}
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="month"],
+input[type="week"] {
+	height: 31px;
+}
+
+.btn-outline-special{
+	color:#000;border-color:#dfdfdf
+	}
+.btn-outline-special:hover{
+	color:#000;background-color:#dfdfdf;border-color:#dfdfdf
+	}
+.btn-outline-special.focus,.btn-outline-special:focus{
+	box-shadow:0 0 0 .2rem rgba(108,117,125,.5)
+	}
+.btn-outline-special.disabled,.btn-outline-special:disabled{
+	color:#dfdfdf;background-color:transparent
+	}
+.btn-outline-special:not(:disabled):not(.disabled).active,.btn-outline-special:not(:disabled):not(.disabled):active,.show>.btn-outline-special.dropdown-toggle{
+	color:#000;background-color:#dfdfdf;border-color:#dfdfdf
+	}
+.btn-outline-special:not(:disabled):not(.disabled).active:focus,.btn-outline-special:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-special.dropdown-toggle:focus{
+	box-shadow:0 0 0 .2rem rgba(108,117,125,.5)
+	}
